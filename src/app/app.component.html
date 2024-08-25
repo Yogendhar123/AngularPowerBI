@@ -1,0 +1,11 @@
+<div class="wrapper-container" *ngIf="isAuthenticated">
+  <div class="page-container">
+    <app-sidenav class="sidenav"></app-sidenav>
+    <div class="body-container">
+      <div class="content-container">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer class="footer"></app-footer>
+    </div>
+  </div>
+</div>

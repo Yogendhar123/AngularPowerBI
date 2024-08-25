@@ -1,0 +1,17 @@
+<div>
+  <div>Are you sure that you want to logout of your account?</div>
+  <div style="display: flex; width: 100%; margin-top: 20px">
+    <div style="margin-left: auto">
+      <button mat-raised-button (click)="onCancel()">Cancel</button>
+    </div>
+    <div style="margin-left: 10px">
+      <button
+        mat-raised-button
+        (click)="logout()"
+        style="color: white; background-color: #e61a23"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</div>

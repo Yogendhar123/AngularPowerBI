@@ -1,0 +1,61 @@
+<div class="sidenav-container">
+  <div class="company-logo">
+    <img src="assets/logos/tcs-logo.svg" alt="Company Logo" />
+  </div>
+  <div class="menu-items-container">
+    <ul class="menu-items-primary">
+      <li
+        class="menu-item"
+        [routerLink]="['chat']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="material-icons">contact_support</i>
+        Chat Assistant
+      </li>
+      <li
+        class="menu-item"
+        [routerLink]="['usage-dashboard']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="material-icons">assessment</i>
+        Usage Dashboard
+      </li>
+      <li
+        class="menu-item"
+        [routerLink]="['moderator-dashboard']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="material-icons">dashboard</i>
+        Moderator Dashboard
+      </li>
+      <li
+        class="menu-item"
+        [routerLink]="['performance-dashboard']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="material-icons">vertical_split</i>
+        Performance Dashboard
+      </li>
+    </ul>
+  </div>
+  <div class="user-profile-container">
+    <div class="user-profile">
+      <span class="user-profile-image user-profile-initials">{{
+        signedInUserNameInitials
+      }}</span>
+      <div class="user-details">
+        <span class="username">{{ profile?.name }}</span>
+        <span class="useremail" [title]="profile?.username">{{
+          profile?.username
+        }}</span>
+      </div>
+      <div class="user-actions">
+        <i class="material-icons" (click)="logout()">logout</i>
+      </div>
+    </div>
+  </div>
+</div>

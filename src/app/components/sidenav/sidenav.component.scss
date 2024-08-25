@@ -1,0 +1,106 @@
+.sidenav-container {
+  color: white;
+  padding: 10px 0;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .menu-items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: inherit;
+    padding: 0.75rem 0;
+
+    ul {
+      width: 95%;
+
+      li {
+        margin: 0.2rem 0rem;
+        list-style: none;
+        padding: 0.5rem 0.65rem;
+        font-size: small;
+        border-radius: 0.25rem;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+          background-color: #363f72;
+        }
+      }
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+
+      i {
+        color: white;
+        vertical-align: middle;
+        font-size: 20px !important;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .user-profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 98%;
+    height: 75px;
+    padding-top: 10px;
+    border-top: 0.5px solid #475467;
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+
+      .user-details {
+        font-size: small;
+        margin-left: 7px;
+        min-width: calc(100% - 85px);
+
+        span {
+          display: block;
+          margin: 3px 0;
+          text-overflow: ellipsis !important;
+          white-space: nowrap !important;
+          overflow-x: hidden;
+        }
+      }
+      .user-actions {
+        margin-left: 7px;
+      }
+
+      i {
+        color: white;
+      }
+    }
+
+    .user-profile-image {
+      width: 45px;
+    }
+
+    .user-profile-initials {
+      background-color: #efefef;
+      color: black;
+      border-radius: 50%;
+      width: 3rem;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      cursor: auto;
+    }
+  }
+}

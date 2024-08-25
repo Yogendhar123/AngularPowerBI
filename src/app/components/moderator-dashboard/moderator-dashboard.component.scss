@@ -1,0 +1,34 @@
+.moderator-dashboard-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  // .usage-dashboard-header {
+  //   height: 4rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   padding: 1.5rem;
+  //   border-bottom: 1px solid #c6ccd5;
+
+  //   .usage-dashboard-header-title {
+  //     font-size: x-large;
+  //     font-weight: bold;
+  //   }
+  // }
+
+  .moderator-dashboard-body {
+    padding: 0 1.5rem;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    border-radius: 0.75rem 0.75rem 0 0;
+    overflow: hidden;
+    background-color: #fcfcfd;
+  }
+}
+
+// User Hightlight color: #3e4784
+// Bot Hightliht color: #f2f4f7
+// Citation Background COlor: #dee2ed
+// Citation and Icon Text Color : #333c6e

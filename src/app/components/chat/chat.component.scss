@@ -1,0 +1,296 @@
+.chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .chat-greeting-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .active-tag,
+    .disabled-tag {
+      background-color: white;
+      color: #3992e2;
+      border: 1px solid #3992e2;
+      margin: 0.125rem;
+      font-size: 12px;
+      line-height: 30px;
+      padding: 0 10px;
+    }
+
+    .active-tag {
+      background-color: #cbe4fa;
+    }
+
+    .chat-greeting-tags {
+      padding: 0.5rem 1.3rem;
+    }
+  }
+
+  .chat-header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #c6ccd5;
+
+    .chat-header-title {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .chat-header-actions button {
+      margin-left: 10px;
+      border-color: lightgray;
+      background-color: white;
+      color: #333c6e;
+    }
+  }
+
+  .description-banner {
+    background-color: #f2f4f7;
+    color: black;
+    padding: 5px 24px;
+    font-size: 13px;
+    border-bottom: 1px solid #c6ccd5;
+  }
+
+  .chat-body {
+    height: calc(100% - 16rem);
+    padding: 1rem 1.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    .chat-content {
+      margin-top: auto;
+    }
+
+    .chat-conversation-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .chat-conversation-feedback {
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        span {
+          font-size: 12px;
+        }
+
+        i {
+          margin: 0 5px;
+          font-size: 18px;
+          color: #e7b325;
+          cursor: pointer;
+        }
+
+        .rating-star {
+          height: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .chat-question,
+    .chat-answer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 7px 0;
+    }
+
+    .chat-question .chat-question-icon i,
+    .chat-answer .chat-answer-icon i {
+      color: #333c6e;
+      font-size: 32px !important;
+      background-color: #f2f4f7;
+      border-radius: 50%;
+      padding: 5px;
+      cursor: default;
+    }
+
+    .voice-indicator i {
+      // background-color: #3e4784;
+      color: #3e4784;
+      font-size: 28px !important;
+      // border-radius: 50%;
+      padding: 5px;
+
+      &:hover {
+        color: #3992e2;
+      }
+    }
+
+    .chat-question .chat-question-text,
+    .chat-answer .chat-answer-text-wrapper,
+    .chat-answer .chat-greeting-text-wrapper {
+      padding: 12px;
+      border-radius: 0.65rem;
+      font-size: small;
+      margin-left: 10px;
+      white-space: pre-line;
+    }
+
+    .chat-question .chat-question-text {
+      background-color: #3e4784;
+      color: white;
+    }
+
+    .chat-answer .chat-answer-text-wrapper {
+      background-color: #f2f4f7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .loader {
+        width: 5px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: l5 1s infinite linear alternate;
+      }
+      @keyframes l5 {
+        0% {
+          box-shadow: 20px 0 #000, -20px 0 #0002;
+          background: #000;
+        }
+        33% {
+          box-shadow: 20px 0 #000, -20px 0 #0002;
+          background: #0002;
+        }
+        66% {
+          box-shadow: 20px 0 #0002, -20px 0 #000;
+          background: #0002;
+        }
+        100% {
+          box-shadow: 20px 0 #0002, -20px 0 #000;
+          background: #000;
+        }
+      }
+
+      .chat-answer-citation {
+        cursor: pointer;
+        background-color: #dee2ed;
+        color: #333c6e;
+        padding: 0.25rem 0.5rem;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: fit-content;
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .chat-answer .chat-greeting-text-wrapper {
+      background-color: #f2f4f7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .active-tag,
+      .disabled-tag {
+        background-color: white;
+        color: #3992e2;
+        border: 1px solid #3992e2;
+        margin: 0.125rem;
+        font-size: 12px;
+      }
+
+      .active-tag {
+        background-color: #cbe4fa;
+      }
+    }
+  }
+
+  .chat-footer {
+    height: 6rem;
+    padding: 0.5rem 1.5rem;
+
+    .suggestion-container {
+      color: #333c6e;
+      height: 45px;
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      border-radius: 0.75rem;
+      border: none;
+      outline: none;
+      padding: 5px;
+      box-shadow: rgba(99, 99, 99, 0.4) 0px 1px 8px 0px;
+    }
+
+    .chat-prompt-container {
+      height: 5rem;
+      border-radius: 0.75rem;
+      box-shadow: rgba(99, 99, 99, 0.4) 0px 1px 8px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .chat-prompt-features {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        i {
+          margin: 0 5px;
+        }
+
+        i:first-child {
+          margin-left: 10px;
+        }
+        i:last-child {
+          margin-right: 10px;
+        }
+      }
+
+      .chat-prompt {
+        outline: none !important;
+        border: none !important;
+        display: flex;
+        align-items: center;
+        flex: 2;
+        height: 3rem;
+        padding: 1rem;
+        font-size: 13px;
+      }
+
+      .chat-prompt-actions {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        > i,
+        button {
+          margin: 0 10px;
+        }
+
+        button {
+          color: white;
+          background-color: #3e4784;
+
+          i {
+            color: white;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// User Hightlight color: #3e4784
+// Bot Hightliht color: #f2f4f7
+// Citation Background COlor: #dee2ed
+// Citation and Icon Text Color : #333c6e

@@ -1,0 +1,166 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <span class="chat-header-title">Responsible AI - Chat Assistant</span>
+    <div class="chat-header-actions">
+      <!-- <button mat-stroked-button><i class="material-icons">settings</i></button> -->
+      <button mat-stroked-button (click)="clearChatConversions()">
+        <i class="material-icons">cached</i> Refresh
+      </button>
+    </div>
+  </div>
+
+  <!-- <div class="description-banner">
+    Plant Assistant is an QnA Bot helps with Safety Logs, Maintenance Schedules,
+    Machine Issues and Troubleshooting, and Safety and Regulatory Content etc.
+  </div> -->
+  <div class="chat-body" #chatConversations>
+    <div class="chat-content">
+      <div class="chat-conversation-content">
+        <div class="chat-answer">
+          <span class="chat-answer-icon"
+            ><i class="material-icons">smart_toy</i></span
+          >
+          <div class="chat-greeting-text-wrapper">
+            <span class="chat-greeting-text">
+              Hello! I'm Responsible AI - Chat Assistant. How can I assist you
+              today?
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="chat-conversation-container"
+        *ngFor="let prompt of promptList"
+      >
+        <div class="chat-conversation-content">
+          <div class="chat-question">
+            <span class="chat-question-icon"
+              ><i class="material-icons">person</i></span
+            >
+            <span class="chat-question-text">{{ prompt.question }}</span>
+          </div>
+          <div class="chat-answer">
+            <span class="chat-answer-icon"
+              ><i class="material-icons">smart_toy</i></span
+            >
+            <div
+              *ngIf="prompt.answer != 'Loading'"
+              class="chat-answer-text-wrapper"
+            >
+              <span class="chat-answer-text" [innerHTML]="prompt.answer"></span>
+              <!-- <br />
+              <span class="chat-answer-citation"
+                ><i class="material-icons">assignment_turned_in</i> View
+                Citation</span
+              > -->
+            </div>
+            <div
+              *ngIf="prompt.answer == 'Loading'"
+              class="chat-answer-text-wrapper"
+            >
+              <span class="chat-answer-text">
+                <div style="width: 45px">
+                  <div class="loader" style="margin-left: 20px"></div>
+                </div>
+              </span>
+            </div>
+            <span
+              class="chat-answer-voice voice-indicator"
+              *ngIf="prompt.voice_status && prompt.answer != 'Loading'"
+              (click)="toggleSpeaker(prompt)"
+              ><i class="material-icons">volume_up</i></span
+            >
+            <span
+              class="chat-answer-voice voice-indicator"
+              *ngIf="!prompt.voice_status && prompt.answer != 'Loading'"
+              (click)="toggleSpeaker(prompt)"
+            >
+              <!-- <i class="material-icons">volume_off</i> -->
+            </span>
+          </div>
+        </div>
+        <div
+          *ngIf="prompt.answer != 'Loading'"
+          class="chat-conversation-feedback"
+        >
+          <span>Rate:</span>
+          <div style="display: flex; margin-top: 2px">
+            <div
+              *ngFor="let star of stars"
+              (click)="setPromptRating(prompt, star)"
+            >
+              <img
+                class="rating-star"
+                *ngIf="star <= prompt.rating"
+                src="assets/images/star-selected.svg"
+              />
+              <img
+                class="rating-star"
+                *ngIf="star > prompt.rating"
+                src="assets/images/star.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <div style="margin-top: 10px">
+      <label style="color: #333c6e; font-size: 14px">Suggested Prompts: </label>
+      <select class="suggestion-container" (change)="onPromptSelection($event)">
+        <option value="" selected disabled="true">Please Select</option>
+        <option
+          *ngFor="let suggestedPrompt of suggestedPromptsList"
+          [ngValue]="suggestedPrompt"
+        >
+          {{ suggestedPrompt }}
+        </option>
+      </select>
+    </div>
+    <div class="chat-prompt-container">
+      <div class="chat-prompt-features">
+        <!-- <input
+          #chatFiles
+          hidden
+          type="file"
+          id="myfile"
+          name="myfile"
+          multiple
+          (change)="uploadFiles($event)"
+        /> -->
+        <!-- <i class="material-icons" (click)="launchFileSelection()"
+          >attach_file</i
+        > -->
+        <!-- <i class="material-icons">sentiment_satisfied</i> -->
+      </div>
+      <input
+        type="text"
+        class="chat-prompt"
+        [(ngModel)]="prompt_query"
+        (ngModelChange)="promptChange($event)"
+        placeholder="Type your question here..."
+        (keyup.enter)="submitQuestion()"
+      />
+      <div class="chat-prompt-actions">
+        <i
+          class="material-icons"
+          *ngIf="mic_status"
+          (click)="toggleMicrophone(false)"
+          >mic</i
+        >
+        <i
+          class="material-icons"
+          *ngIf="!mic_status"
+          (click)="toggleMicrophone(true)"
+          >mic_off</i
+        >
+        <button mat-raised-button (click)="submitQuestion()">
+          <i class="material-icons">send</i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
